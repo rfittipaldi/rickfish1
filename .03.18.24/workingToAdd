@@ -145,7 +145,7 @@ doc.saveAndClose()
 Utilities.sleep(1000);
 return docId;
 }
-function emailDocPDF(docId, fDob, fStart, fEnd) {
+function emailDocPDF2(docId, fDob, fStart, fEnd) {
   var document = DocumentApp.openById(docId);
   var blob = document.getBlob().getAs('application/pdf');
   blob.setName(document.getName() + '.pdf');
@@ -210,6 +210,8 @@ var techBody = '<strong style="font-size: 2em; ">' + record_array[4] + ', ' + re
 var techTemp = DriveApp.getFileById('1ZqJV6Jol2sNtUbyjwTt_M3PHKLPpUnfYby_Kz0RAOsI');
 var folder  = DriveApp.getFolderById('1hXZLvu-kSHzxtjX5VLs3-ocHvnhP_eGF');
 var copy = techTemp.makeCopy('tech - new certified hire ' + lname + ', ' + fname +'  |  ' + position + ' at ' + school);
+var copy = techTemp.makeCopy('tech - new certified hire ' + record_array[4] + ', ' + record_array[3] +' | ' + record_array[2] + ' at ' + record_array[0]);
+
 var techId = copy.getId();
 var techDoc = DocumentApp.openById(techId);
 var techDoc = doc.getBody();
