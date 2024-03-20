@@ -145,11 +145,9 @@ Utilities.sleep(1000);
 return docId;
 }
 function emailDocPDF(docId, formattedDob, formattedStart, formattedEnd) {
-  var distDoc = DocumentApp.openById(docId);
-  var distBlob = distDoc.getBlob().getAs('application/pdf');
-  distBlob.setName(distDoc.getName() + '.pdf');
-
-  var techTemp = DocumentApp.openbyId()
+  var document = DocumentApp.openById(docId);
+  var blob = document.getBlob().getAs('application/pdf');
+  blob.setName(document.getName() + '.pdf');
 var table = 
 '<table style = "border-collapse: collapse; width: 60%;">' + 
 '<tr><td style="padding:.5em;font-size:1em; width:20%;border: 1px solid #dddddd;text-align: right;">School</td><th style="background-color: #f2f2f2; border: 1px solid #dddddd; text-align: left; padding: 8px;">' + record_array[0] + '</th></tr>' +
