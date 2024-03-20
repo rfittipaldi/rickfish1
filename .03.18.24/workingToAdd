@@ -264,7 +264,7 @@ GmailApp.sendEmail(
 );
 
 }
-
+// figure out how to do this for previous table
 function createTechTable(tableData) {
     var techTable = '<table style="border-collapse: collapse; width: 60%:">';
     var startIndex = 6;
