@@ -197,4 +197,22 @@ GmailApp.sendEmail(
   body,
   {htmlBody: body, attachments:[blob]}
 );
+
+var techArray = record_array.slice();
+techArray.splice(6, 1);
+
+var techTable = createTechTable(techArray);
+var techList = ['rfittipaldi@gehrhsd.net', 'gehrhsd@gehrhsd.net'];
+var techSubject = 'To Tech - New Certified Hire - ' + record_array[3] + ' ' + record_array[4] + '  |  ' + record_array[2] + '  |  Starting on ' + fStart + ' at ' + record_array[0];
+var techBody = record_array[4] + ', <strong style="font-size: 2em; ">' + record_array[3] + '</strong><br><br>' + table;
+var techBody = '<strong style="font-size: 2em; ">' + record_array[4] + ', ' + record_array[3] + '</strong><br><br>' + table;
+
+var techTemp = DriveApp.getFileById('1ZqJV6Jol2sNtUbyjwTt_M3PHKLPpUnfYby_Kz0RAOsI');
+var folder  = DriveApp.getFolderById('1hXZLvu-kSHzxtjX5VLs3-ocHvnhP_eGF');
+var copy = techTemp.makeCopy('tech - new certified hire ' + lname + ', ' + fname +'  |  ' + position + ' at ' + school);
+var techId = copy.getId();
+var techDoc = DocumentApp.openById(techId);
+var techPage = techPage = techDoc.getBody();
+
+
 }
