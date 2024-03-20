@@ -264,3 +264,16 @@ GmailApp.sendEmail(
 );
 
 }
+
+function createTechTable(tableData) {
+    var techTable = '<table style="border-collapse: collapse; width: 60%:">';
+    var startIndex = 6;
+    var endIndex = 15;
+    for (var i = 0; i < tableData.length; i++) {
+        if (i < startIndex || i > endIndex && i !== 33) continue;
+        var label = '<td>' + (i % 2 === 0 ? '<b>' : '') + 'Notes ' + (i + 1) + '</b>' + (i % 2 === 0 ? '</td>' : ':</td>');
+        techTable += '<tr>' + label + value + '</tr>';
+    }
+    techTable =+ '</table>';
+    return techTable;
+}
