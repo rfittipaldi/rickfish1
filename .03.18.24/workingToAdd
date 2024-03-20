@@ -100,7 +100,7 @@ function AddRecord(
 )
 {
   var templateFile = DriveApp.getFileById('1pO1cNkMvMnZCjsN4Q6qMabZcBCOBf9kWrNXLjWXMvlI'); // certified to district
-  var folder = DriveApp.getFolderById('1CE6CPnWxujXbhAr54AvjF6ztg7yK7tqV');
+  var folder = DriveApp.getFolderById('1bHBaUlQsabUdt27rGgFlws4PwImeq6uX');
   copy.moveTo(folder);
   var copy = templateFile.makeCopy('new certified hire ' + lname + ', ' + fname +'  |  ' + position + ' at ' + school);
   var docId = copy.getId();
@@ -272,6 +272,8 @@ function createTechTable(tableData) {
     for (var i = 0; i < tableData.length; i++) {
         if (i < startIndex || i > endIndex && i !== 33) continue;
         var label = '<td>' + (i % 2 === 0 ? '<b>' : '') + 'Notes ' + (i + 1) + '</b>' + (i % 2 === 0 ? '</td>' : ':</td>');
+        var value = '<th style="background-color: #f2f2f2; border: 1px solid #dddddd; text-align: left; padding: 8px;">' + tableData[i] + '</th>';
+        
         techTable += '<tr>' + label + value + '</tr>';
     }
     techTable =+ '</table>';
