@@ -212,7 +212,55 @@ var folder  = DriveApp.getFolderById('1hXZLvu-kSHzxtjX5VLs3-ocHvnhP_eGF');
 var copy = techTemp.makeCopy('tech - new certified hire ' + lname + ', ' + fname +'  |  ' + position + ' at ' + school);
 var techId = copy.getId();
 var techDoc = DocumentApp.openById(techId);
-var techPage = techPage = techDoc.getBody();
+var techDoc = doc.getBody();
+    techDoc.replaceText("{{school}}",             school);
+    techDoc.replaceText("{{category}}",           category);
+    techDoc.replaceText("{{position}}",           position);
+    techDoc.replaceText("{{fname}}",              fname);
+    techDoc.replaceText("{{lname}}",              lname);
+    techDoc.replaceText("{{mname}}",              mmname);
+    techDoc.replaceText("{{ssn}}",                ssn);
+    techDoc.replaceText("{{dob}}",                dob);
+    techDoc.replaceText("{{cell#}}",              cell);
+    techDoc.replaceText("{{per_email}}",          email);
+    techDoc.replaceText("{{effective}}",          start);
+    techDoc.replaceText("{{end_date}}",           end);
+    techDoc.replaceText("{{full_time}}",          fulltime);
+    techDoc.replaceText("{{new_position}}",       newposition);
+    techDoc.replaceText("{{replacing}}",          replacing);
+    techDoc.replaceText("{{covering}}",           covering);
+    techDoc.replaceText("{{degree}}",             degree);
+    techDoc.replaceText("{{tracking}}",           tracking);
+    techDoc.replaceText("{{cert1}}",              certs1);
+    techDoc.replaceText("{{cert2}}",              certs2);
+    techDoc.replaceText("{{cert_type}}",          certType);
+    techDoc.replaceText("{{exp_pub_ed}}",         exp1);
+    techDoc.replaceText("{{exp_ed}}",             exp2);
+    techDoc.replaceText("{{exp_prof}}",           exp3);
+    techDoc.replaceText("{{preps}}",              preps);
+    techDoc.replaceText("{{salary}}",             expectation);
+    techDoc.replaceText("{{mentor1}}",            mentor1);
+    techDoc.replaceText("{{mentor2}}",            mentor2);
+    techDoc.replaceText("{{spec_ed_college}}",    college1);
+    techDoc.replaceText("{{alt_route_college}}",  college2);
+    techDoc.replaceText("{{applicants}}",         applied);
+    techDoc.replaceText("{{interviewed}}",        interviewed);
+    techDoc.replaceText("{{summary}}",            summary);
+    techDoc.replaceText("{{demo}}",               demo);
+    techDoc.replaceText("{{notes}}",              notes);
+techDoc.saveAndClose();
+Utilities.sleep(1000);
 
+var techBlob = DriveApp.getFileById(techId).getBlob().getAs('application/pdf');
+techBlob.setName(techDoc.getName() + '.pdf');
+GmailApp.sendEmail(
+    techList.join(','),
+    techSubject,
+    techBody,
+    {
+        htmlBody: techBody,
+        attachments: [techBlob, techTable]      
+    }
+);
 
 }
